@@ -19,7 +19,7 @@
                         </div>
                     @endif
 
-                    <p><a class="btn btn-info" href="{{ route('cliente.adicionar') }}">Adicionar</a></p>
+                    <p><a class="btn btn-primary" href="{{ route('cliente.adicionar') }}">Adicionar</a></p>
 
                     <div align="center">
 
@@ -42,7 +42,7 @@
                                 <td>{{ $cliente->email }}</td>
                                 <td>{{ $cliente->endereco }}</td>
                                 <td class="col-md-3">
-                                    <a class="btn btn-default" href="{{route('cliente.detalhe', $cliente->id)}}">Detalhe</a>
+                                    <a class="btn btn-warning" href="{{route('cliente.detalhe', $cliente->id)}}">Detalhe</a>
                                     <a class="btn btn-default" href="{{route('cliente.editar', $cliente->id)}}">Editar</a>
                                     <a class="btn btn-danger" href="javascript:(confirm('Deletar esse registro?') ? window.location.href='{{route('cliente.deletar', $cliente->id)}}': false)">Deletar</a>
                                     

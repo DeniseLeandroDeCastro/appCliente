@@ -42,7 +42,7 @@
                         </tbody>
                     </table>
 
-                    <p><a class="btn btn-info" href="#">Adicionar Telefone</a></p>
+                    <p><a class="btn btn-primary" href="{{route('telefone.adicionar', $cliente->id)}}">Adicionar Telefone</a></p>
 
                 </div>
             </div>
