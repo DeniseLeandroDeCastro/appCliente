@@ -3,6 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Input;
+use App\Clientes;
+use Redirect;
+use App\Http\Requests;
+
+use File;
+
+
+
 
 class ClienteController extends Controller
 {
@@ -11,18 +20,12 @@ class ClienteController extends Controller
         $this->middleware('auth');
     }
     
-
+    
     public function index()
     {
         $clientes = \App\Cliente::paginate(5);
         
         return view('cliente.index', compact('clientes'));
-    }
-
-    public function detalhe($id)
-    {
-        $cliente = \App\Cliente::find($id);
-        return view('cliente.detalhe',compact('cliente'));
     }
 
     // Método que irá adicionar clientes no banco de dados
@@ -31,8 +34,14 @@ class ClienteController extends Controller
     	return view('cliente.adicionar');
     }
 
+    public function detalhe($id)
+    {
+        $cliente = \App\Cliente::find($id);
+        return view('cliente.detalhe',compact('cliente'));
+    }
+
     // Método que irá salvar o cliente adicionado no banco de dados
-    public function salvar(Request $request)
+    public function salvar(\App\Http\Requests\ClienteRequest $request)
     {
         \App\Cliente::create($request->all());
         \Session::flash('flash_message', [
@@ -57,15 +66,18 @@ class ClienteController extends Controller
     }
 
 
-    public function atualizar(Request $request, $id)
+    public function atualizar(\App\Http\Requests\ClienteRequest $request,$id)
     {
         \App\Cliente::find($id)->update($request->all());
+        $cliente = \App\Cliente::find($id);
+
+        \Session::flash('flash_message',[
+            'msg'=>"Cliente atualizado com Sucesso!",
+            'class'=>"alert-success"
+        ]);
+
+        return redirect()->route('cliente.index');        
         
-            \Session::flash('flash_message', [
-                'msg'=>"Cliente atualizado com sucesso!",
-                'class'=>"alert-success"
-            ]);
-                return redirect()->route('cliente.index');
     }
 
     public function deletar($id)

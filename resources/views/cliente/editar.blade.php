@@ -12,8 +12,9 @@
                 </ol>
 
                 <div class="panel-body">                                    
-                    <form action="{{ route('cliente.atualizar',$cliente->id) }}" method="post">
+                    <form action="{{ route('cliente.atualizar',$cliente->id) }}" method="post" enctype="multipart/form-data">
                         {{ csrf_field() }}
+
                         <input type="hidden" name="_method" value="put">
                         <div class="form-group {{ $errors->has('nome') ? 'has-error' : '' }}">
                             <label for="nome">Nome</label>
@@ -23,8 +24,7 @@
                                     <strong>{{ $errors->first('nome') }}</strong>
                                 </span>
                             @endif
-                        </div>
-                        
+                        </div> 
                         <div class="form-group {{ $errors->has('email') ? 'has-error' : '' }}">
                             <label for="email">E-mail</label>
                             <input type="email" name="email" class="form-control" placeholder="E-mail do cliente" value="{{$cliente->email}}">
@@ -43,7 +43,12 @@
                                 </span>
                             @endif
                         </div>
-                        <button class="btn btn-info">Atualizar</button>
+                        <div class="form-group">
+                            
+                            <label for="image">Imagem:</label>
+                            <input type="file" name="image" class="form-control">
+                        </div>
+                        <button class="btn btn-primary">Atualizar</button>
                         
                     </form>
                     
