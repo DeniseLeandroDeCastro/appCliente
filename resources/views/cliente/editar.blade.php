@@ -43,7 +43,7 @@
                                 </span>
                             @endif
                         </div>
-                        <button class="btn btn-info">Atualizar</button>
+                        <button class="btn btn-primary">Atualizar</button>
                         
                     </form>
                     
