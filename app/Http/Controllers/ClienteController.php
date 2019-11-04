@@ -19,6 +19,12 @@ class ClienteController extends Controller
         return view('cliente.index', compact('clientes'));
     }
 
+    public function detalhe($id)
+    {
+        $cliente = \App\Cliente::find($id);
+        return view('cliente.detalhe',compact('cliente'));
+    }
+
     // Método que irá adicionar clientes no banco de dados
     public function adicionar()
     {
@@ -60,5 +66,24 @@ class ClienteController extends Controller
                 'class'=>"alert-success"
             ]);
                 return redirect()->route('cliente.index');
+    }
+
+    public function deletar($id)
+    {
+        $cliente = \App\Cliente::find($id);
+        if(!$cliente->deletarTelefones()) {
+            \Session::flash('flash_message', [
+                'msg'=>"Registro não pode ser deletado!",
+                "class"=>"alert-danger"
+            ]);
+            return redirect()->route('cliente.index');
+        }
+        $cliente->delete();
+
+        \Session::flash('flash_message', [
+            'msg'=>"Cliente deletado com sucesso!",
+            'class'=>"alert-success"
+        ]);
+        return redirect()->route('cliente.index');
     }
 }
