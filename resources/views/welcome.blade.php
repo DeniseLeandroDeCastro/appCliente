@@ -13,7 +13,7 @@
         <!-- Styles -->
         <style>
             html, body {
-                background-color: #fff;
+                background-color: #DCDCDC;
                 color: #636b6f;
                 font-family: 'Raleway', sans-serif;
                 font-weight: 100;
@@ -84,6 +84,7 @@
 
                 <div class="links">
                     <a href="https://github.com/deniseleandrodecastro">GitHub</a>
+                    <a href="https://www.linkedin.com/in/denise-leandro-de-castro-59425b4a/">Linkedin</a>
                 </div>
             </div>
         </div>

@@ -11,8 +11,6 @@ use App\Http\Requests;
 use File;
 
 
-
-
 class ClienteController extends Controller
 {
     public function __construct()
@@ -99,3 +97,6 @@ class ClienteController extends Controller
         return redirect()->route('cliente.index');
     }
 }
+
+   
+

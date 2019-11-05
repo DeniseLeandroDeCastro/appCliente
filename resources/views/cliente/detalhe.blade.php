@@ -12,6 +12,7 @@
                 </ol>
 
                 <div class="panel-body">
+                
                     <p><b>Cliente: </b>{{ $cliente->nome }}</p>
                     <p><b>Email: </b>{{ $cliente->email }}</p>
                     <p><b>Endereço: </b>{{ $cliente->endereco }}</p>
