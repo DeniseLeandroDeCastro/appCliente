@@ -12,6 +12,7 @@
                 </ol>
 
                 <div class="panel-body">
+
                     <form action="{{ route('telefone.salvar', $cliente->id) }}" method="post" enctype="multipart/form-data">
                     {{ csrf_field() }}
 
@@ -25,14 +26,15 @@
                             @endif
                         </div>
 
-                        <div class="form-group {{ $errors->has('telefone') ? 'has-error' : '' }}" >
+                    <form action="{{ route('telefone.salvar', $cliente->id) }}" method="post">
+                    {{ csrf_field() }}
+
+                      
+
+                        <div class="form-group">
                             <label for="numero">Número do Telefone</label>
                             <input type="text" name="telefone" class="form-control" placeholder="Número do Telefone">
-                            @if($errors->has('telefone'))
-                                <span class="help-block">
-                                    <strong>{{ $errors->first('telefone') }}</strong>
-                                </span>
-                            @endif
+
                         </div>
 
                         <button class="btn btn-primary">Adicionar</button>

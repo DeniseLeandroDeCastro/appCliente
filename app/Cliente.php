@@ -15,14 +15,14 @@ class Cliente extends Model
     }
 
 
-    // Método para adicionar telefones
+    // Método para adicionar telefones.
     public function addTelefone(Telefone $tel)
     {
     	return $this->telefones()->save($tel);
     }
 
 
-    // Método para deletar telefones
+    // Método para deletar telefones.
     public function deletarTelefones()
     {
     	foreach ($this->telefones as $tel) {
